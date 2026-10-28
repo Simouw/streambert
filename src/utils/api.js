@@ -126,6 +126,17 @@ export const tmdbFetch = async (path, apiKey) => {
 // https://devideosrc.co/docs
 // https://frembed.bar/api-docs
 // https://on.kinohub.vip/
+// https://vidcore.org/
+// https://cinesrc.st/
+// https://vidsrc.ru/
+// https://vidcore.io/
+// https://vidup.to/
+// https://vidrock.to/
+// https://play.xpass.top/
+// https://vaplayer.ru/
+// https://moviesapi.to/
+// https://www.vidy.st/
+// https://www.viduki.net/
 
 // ── Player Sources ────────────────────────────────────────────────────────────
 // supportsProgress: true = executeJavaScript tracking works for this source
@@ -284,6 +295,158 @@ export const PLAYER_SOURCES = [
     movieUrl: (id) => `https://on.kinohub.vip/movie/${id}`,
   },
   {
+    id: "vidcore_org",
+    label: "VidCore",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    colorParam: "theme",
+    params: {
+      autoplay: "true",
+    },
+    movieUrl: (id) => `https://vidcore.org/embed/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://vidcore.org/embed/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "cinesrc",
+    label: "CineSrc",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    params: {},
+    movieUrl: (id) => `https://cinesrc.st/embed/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://cinesrc.st/embed/tv/${id}?season=${season}&episode=${ep}`,
+  },
+  {
+    id: "vidsrc_ru",
+    label: "VidSrc.ru",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    progressViaFrames: true,
+    colorParam: null,
+    langParam: "ds_lang",
+    params: {
+      autoplay: "1",
+    },
+    movieUrl: (id) => `https://vidsrc.ru/embed/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://vidsrc.ru/embed/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "xpass",
+    label: "XPass",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    params: {
+      autostart: "true",
+    },
+    movieUrl: (id) => `https://play.xpass.top/e/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://play.xpass.top/e/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "vidcore_io",
+    label: "VidCore.io",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    colorParam: "theme",
+    langParam: "sub",
+    params: {
+      autoPlay: "true",
+      chromecast: "false",
+    },
+    movieUrl: (id) => `https://vidcore.io/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://vidcore.io/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "vidup",
+    label: "VidUp",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    colorParam: "theme",
+    langParam: "sub",
+    params: {
+      autoPlay: "true",
+      autoNext: "true",
+      nextButton: "true",
+      chromecast: "false",
+    },
+    movieUrl: (id) => `https://vidup.to/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://vidup.to/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "vidrock",
+    label: "VidRock",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    params: {
+      autoplay: "true",
+      autonext: "false",
+      nextbutton: "false",
+    },
+    movieUrl: (id) => `https://vidrock.to/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://vidrock.to/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "vaplayer",
+    label: "VAPlayer",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    progressViaFrames: true,
+    params: {
+      autoplay: "1",
+    },
+    movieUrl: (id) => `https://vaplayer.ru/embed/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://vaplayer.ru/embed/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "moviesapi",
+    label: "MoviesAPI",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    params: {},
+    movieUrl: (id) => `https://moviesapi.to/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://moviesapi.to/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "vidyst",
+    label: "Vidy",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    params: {
+      autoplay: "true",
+    },
+    movieUrl: (id) => `https://www.vidy.st/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://www.vidy.st/tv/${id}/${season}/${ep}`,
+  },
+  {
+    id: "viduki",
+    label: "Viduki",
+    tag: null,
+    note: null,
+    supportsProgress: true,
+    params: {},
+    movieUrl: (id) => `https://www.viduki.net/1/movie/${id}`,
+    tvUrl: (id, season, ep) =>
+      `https://www.viduki.net/1/tv/${id}/${season}/${ep}`,
+  },
+  {
     id: "hianime",
     label: "HiAnime",
     tag: "ANIME",
@@ -297,7 +460,14 @@ export const PLAYER_SOURCES = [
 ];
 
 // Sources that require a transparent webRequest intercept to load properly
-export const NEEDS_INTERCEPT = ["vidsrc", "devideosrc", "frembed", "kinohub"];
+export const NEEDS_INTERCEPT = [
+  "vidsrc",
+  "vidsrc_ru",
+  "vaplayer",
+  "devideosrc",
+  "frembed",
+  "kinohub",
+];
 
 export const getSourceUrl = (
   sourceId,

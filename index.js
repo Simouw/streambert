@@ -276,6 +276,20 @@ const BLOCKED_HOSTS = [
   "*://*.varnishtala.cyou/*",
   "*://1037973644.rsc.cdn77.org/*",
   "*://cdn.pncloudfl.com.cdn.cloudflare.net/*",
+  "*://cineflix.st/*",
+  "*://*.cineflix.st/*",
+  "*://tagivi.com/*",
+  "*://*.tagivi.com/*",
+  "*://umami.vidcore.net/*",
+  "*://*.vidcore.net/*",
+  "*://umami.vidup.to/*",
+  "*://*.vidup.to/*",
+  "*://nextgencloudfabric.com/*",
+  "*://*.nextgencloudfabric.com/*",
+  "*://profiton.com/*",
+  "*://*.profiton.com/*",
+  "*://clckd.com/*",
+  "*://*.clckd.com/*",
 ];
 
 // -- Module-level state --------------------------------------------------------
